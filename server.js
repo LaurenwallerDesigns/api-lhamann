@@ -10,12 +10,12 @@ app.use(cors());
 app.use(json())
 app.use(urlencoded({ extended: true }))
 
-app.use(express.static('ui'))
+app.use(express.static(path.join(__dirname, 'build')));
 app.use('/blog', blogRouter)
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+app.get('/*', function (req, res) {
+   res.sendFile(path.join(__dirname, 'build', 'index.html'));
+ });
 
 
 app.listen(port, () => {
