@@ -1,6 +1,6 @@
 import express from 'express'
 import { json, urlencoded } from 'body-parser'
-const cors = require('cors');
+import cors from 'cors'
 const port = 3030
 import createOne from './blog/blog.controllers';
 import blogRouter from './blog/blog.router';
