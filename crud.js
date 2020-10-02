@@ -31,7 +31,6 @@ export const getOne = model => async (req, res) => {
   }
   
   export const createOne = model => async (req, res) => {
-    const id =  req.params.id;
     try {
         console.log(req.body);
       const doc = await model.create({...req.body})

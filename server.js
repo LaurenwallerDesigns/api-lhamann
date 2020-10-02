@@ -2,8 +2,8 @@ const  express = require('express')
 import { json, urlencoded } from 'body-parser'
 import cors from 'cors'
 const port = 3030
-import createOne from './blog/blog.controllers';
 import blogRouter from './blog/blog.router';
+import userRouter from './users/user.router';
 export const app = express()
 
 app.use(cors());
@@ -13,6 +13,7 @@ app.use(urlencoded({ extended: true }))
 //app.use(express.static(path.dirname('build')));
 
 app.use('/blog', blogRouter)
+app.use('/user', userRouter)
 
 app.get('/', function (req, res) {
    res.send("Hello World");
