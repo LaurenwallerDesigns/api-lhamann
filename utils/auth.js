@@ -6,6 +6,7 @@ export const signin = async (req, res) => {
     }
   
     const user = await User.findOne({ email: req.body.email })
+    .populate('posts')
     if (!user) {
       return res.status(401).send({ message: 'not auth' })
     }

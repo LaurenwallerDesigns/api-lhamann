@@ -1,11 +1,11 @@
 import { Router } from 'express'
-import controllers from './user.controllers';
+import { me, updateMe } from './user.controllers'
+
 
 const router = Router()
 
-  router
-  .route('/create')
-  .post(controllers.createOne)
+router.get('/', me)
+router.put('/', updateMe)
 
 
   export default router

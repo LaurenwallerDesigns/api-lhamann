@@ -8,9 +8,13 @@ const postSchema  = new Schema({
     description: String,
     body: String,
     createdBy: {
-        firstName: String,
-        lastName: String
-    }
+        type: mongoose.SchemaTypes.ObjectId,
+        ref: 'user',
+        required: true
+    },
+    comments : [{ 
+        type: Schema.Types.ObjectId, 
+        ref: 'comment' }]
 },
 { timestamps: true })
 const connection = mongoose.createConnection('mongodb://127.0.0.1:27017/post', { useNewUrlParser: true, useUnifiedTopology: true });

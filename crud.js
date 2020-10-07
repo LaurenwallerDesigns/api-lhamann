@@ -2,6 +2,7 @@ export const getOne = model => async (req, res) => {
     try {
       const doc = await model
         .findOne({ _id: req.params.id })
+        .populate('comments')
         .lean()
         .exec()
   

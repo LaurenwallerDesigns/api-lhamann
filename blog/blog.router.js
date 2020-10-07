@@ -1,18 +1,22 @@
 import { Router } from 'express'
-import controllers from './blog.controllers';
+import { getMany, createOne, getOne, updateOne, removeOne } from './blog.controllers';
+import { create } from '../comment/comment.controllers';
 
 const router = Router()
 
 router
   .route('/')
-  .get(controllers.getMany)
+  .get(getMany)
 
   router
   .route('/create')
-  .post(controllers.createOne)
+  .post(createOne)
 
   router
   .route('/:id')
-  .get(controllers.getOne)
+  .get(getOne)
+  .put(updateOne)
+  .delete(removeOne)
+  .post(create)
 
   export default router
